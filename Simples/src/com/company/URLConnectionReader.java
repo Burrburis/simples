@@ -32,6 +32,6 @@ public class URLConnectionReader {
         // System.out.println(match);
         System.out.println(players.length());
         System.out.println(name);
-        //System.out.println(matchresult);
+        System.out.println(matchresult);
     }
 }
