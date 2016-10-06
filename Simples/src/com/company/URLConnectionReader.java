@@ -10,23 +10,21 @@ import java.io.*;
 class BufferReaderFile {
  private String Line;
          String file;
-
+private void parse(BufferedReader s) throws Exception{
+    file = "";
+    while ((Line = s.readLine()) != null) {
+        file = file + Line;
+    }
+    s.close();
+}
     public BufferReaderFile(String filepath) throws Exception  {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filepath));
-        file = "";
-        while ((Line = bufferedReader.readLine()) != null) {
-            file = file + Line;
-        }
-        bufferedReader.close();
+    parse(bufferedReader);
     }
 
     public BufferReaderFile(Reader potok) throws Exception  {
         BufferedReader bufferedReader = new BufferedReader(potok);
-        file = "";
-        while ((Line = bufferedReader.readLine()) != null) {
-            file = file + Line;
-        }
-        bufferedReader.close();
+        parse(bufferedReader);
     }
 }
 

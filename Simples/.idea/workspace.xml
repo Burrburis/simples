@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3e975d8-b2bc-4f01-a620-309aaf68d67f" name="Default" comment="">
+    <list default="true" id="f3e975d8-b2bc-4f01-a620-309aaf68d67f" name="Default" comment="Work">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Simples/URLConnectionReader.class" afterPath="$PROJECT_DIR$/out/production/Simples/URLConnectionReader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/URLConnectionReader.java" afterPath="$PROJECT_DIR$/src/com/company/URLConnectionReader.java" />
     </list>
@@ -28,8 +29,8 @@
       <file leaf-file-name="URLConnectionReader.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/URLConnectionReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+            <state relative-caret-position="51">
+              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -704,7 +705,7 @@
       <workItem from="1475672601160" duration="590000" />
       <workItem from="1475673239222" duration="2504000" />
       <workItem from="1475739762270" duration="197000" />
-      <workItem from="1475739990042" duration="9104000" />
+      <workItem from="1475739990042" duration="10036000" />
     </task>
     <task id="LOCAL-00001" summary="Work">
       <created>1475755984575</created>
@@ -713,11 +714,18 @@
       <option name="project" value="LOCAL" />
       <updated>1475755984575</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Work">
+      <created>1475760091409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1475760091409</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89623000" />
+    <option name="totallyTimeSpent" value="90555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1183,8 +1191,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/URLConnectionReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="41" column="45" selection-start-line="41" selection-start-column="45" selection-end-line="41" selection-end-column="45" />
+        <state relative-caret-position="51">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
