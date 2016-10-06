@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 class BufferReaderFile {
     private String line;
-    String file;
+    private String file;
 
     private void parse(BufferedReader s) throws Exception {
         file = "";
@@ -29,6 +29,30 @@ class BufferReaderFile {
         BufferedReader bufferedReader = new BufferedReader(potok);
         parse(bufferedReader);
     }
+
+    public String getFile() {
+        return file;
+    }
+}
+
+class JsonParser {
+
+
+    public JsonParser(String file) throws Exception {
+        JSONObject jsonObject = new JSONObject(file);
+        JSONObject match = jsonObject.getJSONObject("result");
+        String matchresult = jsonObject.getString("result");
+        JSONArray players = match.getJSONArray("players");
+        JSONObject player1 = players.getJSONObject(0);
+    }
+
+    public String getplayer(int i) {
+        return null;
+    }
+
+    public String resultmatch() {
+        return null;
+    }
 }
 
 public class URLConnectionReader {
@@ -42,18 +66,10 @@ public class URLConnectionReader {
         BufferReaderFile readerURL = new BufferReaderFile(new InputStreamReader(yc.getInputStream()));
         BufferReaderFile readHeroes = new BufferReaderFile("data/heroes.json");
         ArrayList<String> dota2 = new ArrayList<String>();
-        dota2.add(readAbilities.file);
-        dota2.add(readerURL.file);
-        dota2.add(readHeroes.file);
-
-        JSONObject jsonObject = new JSONObject(dota2.get(1));
-        JSONObject match = jsonObject.getJSONObject("result");
-        String matchresult = jsonObject.getString("result");
-        JSONArray players = match.getJSONArray("players");
-        JSONObject player1 = players.getJSONObject(0);
-        System.out.println(players);
-        System.out.println(player1);
-
+        dota2.add(readAbilities.getFile());
+        dota2.add(readerURL.getFile());
+        dota2.add(readHeroes.getFile());
+        System.out.println(dota2.get(1));
     }
 }
 
