@@ -35,10 +35,9 @@ class BufferReaderFile {
     }
 }
 
-class JsonParser {
-
-
-    public JsonParser(String file) throws Exception {
+class Match {
+    private JSONObject jsonObject;
+    public Match(String file) throws Exception {
         JSONObject jsonObject = new JSONObject(file);
         JSONObject match = jsonObject.getJSONObject("result");
         String matchresult = jsonObject.getString("result");
@@ -51,6 +50,7 @@ class JsonParser {
     }
 
     public String resultmatch() {
+
         return null;
     }
 }
