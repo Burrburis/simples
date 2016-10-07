@@ -57,7 +57,7 @@ class Match {
 
     public String getidplayer(int i) throws Exception{
         JSONObject idplayer = this.getplayerstats(i);
-        return  idplayer.getString("id");
+        return  idplayer.getString("account_id");
     }
 
 }
@@ -65,7 +65,7 @@ class Match {
 public class URLConnectionReader {
     private static String url;
     private static String ABILITIES = "data/abilities.json";
-    private static String HEROES = "data/heroes.json";
+    private static String HEROES = "https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key=4CF8B3DF4EF7B7BBD041E21E620DB912&language=?ru_ru";
     private static String ITEMS = "data/items.json";
 
 
