@@ -42,10 +42,11 @@ class Match {
         this.jsonObject = new JSONObject(file);
     }
 
-    public Object getplayer(int i)  throws Exception {
+    public JSONObject getplayerstats(int i)  throws Exception {
         JSONObject match = this.jsonObject.getJSONObject("result");
         JSONArray players =  match.getJSONArray("players");
         JSONObject player = players.getJSONObject(i);
+
         return player;
     }
 
@@ -53,16 +54,20 @@ class Match {
    String result =  this.jsonObject.getString("result");
         return result;
     }
+
+    public String getidplayer(int i) throws Exception{
+        JSONObject idplayer = this.getplayerstats(i);
+        return  idplayer.getString("id");
+    }
+
 }
 
 public class URLConnectionReader {
     private static String url;
     private static String ABILITIES = "data/abilities.json";
-    private static String HEROES = "data/abilities.json";
-    private static String ITEMS = "data/abilities.json";
-    private static String LOBBIES = "data/abilities.json";
-    private static String MODS = "data/abilities.json";
-    private static String REGIONS = "data/abilities.json";
+    private static String HEROES = "data/heroes.json";
+    private static String ITEMS = "data/items.json";
+
 
     public static void main(String[] args) throws Exception {
         url = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?match_id=2684466831&key=4CF8B3DF4EF7B7BBD041E21E620DB912";
@@ -74,11 +79,12 @@ public class URLConnectionReader {
 
         ArrayList<String> dota2 = new ArrayList<>();
         dota2.add(URL.getFile());
-        dota2.add(abilities.getFile());
-        dota2.add(heroes.getFile());
+       // dota2.add(abilities.getFile());
+      //  dota2.add(heroes.getFile());
         Match match = new Match(dota2.get(0));
         System.out.println(match.resultmatch());
-        System.out.println(match.getplayer(9));
+        System.out.println(match.getplayerstats(9));
+        System.out.println(match.getidplayer(0));
 
     }
 }
