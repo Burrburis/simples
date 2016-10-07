@@ -25,8 +25,8 @@ class BufferReaderFile {
         parse(bufferedReader);
     }
 
-    public BufferReaderFile(Reader potok) throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(potok);
+    public BufferReaderFile(Reader stream) throws Exception {
+        BufferedReader bufferedReader = new BufferedReader(stream);
         parse(bufferedReader);
     }
 
@@ -37,39 +37,49 @@ class BufferReaderFile {
 
 class Match {
     private JSONObject jsonObject;
+
     public Match(String file) throws Exception {
-        JSONObject jsonObject = new JSONObject(file);
-        JSONObject match = jsonObject.getJSONObject("result");
-        String matchresult = jsonObject.getString("result");
-        JSONArray players = match.getJSONArray("players");
-        JSONObject player1 = players.getJSONObject(0);
+        this.jsonObject = new JSONObject(file);
     }
 
-    public String getplayer(int i) {
-        return null;
+    public Object getplayer(int i)  throws Exception {
+        JSONObject match = this.jsonObject.getJSONObject("result");
+        JSONArray players =  match.getJSONArray("players");
+        JSONObject player = players.getJSONObject(i);
+        return player;
     }
 
-    public String resultmatch() {
-
-        return null;
+    public String resultmatch() throws Exception {
+   String result =  this.jsonObject.getString("result");
+        return result;
     }
 }
 
 public class URLConnectionReader {
     private static String url;
+    private static String ABILITIES = "data/abilities.json";
+    private static String HEROES = "data/abilities.json";
+    private static String ITEMS = "data/abilities.json";
+    private static String LOBBIES = "data/abilities.json";
+    private static String MODS = "data/abilities.json";
+    private static String REGIONS = "data/abilities.json";
 
     public static void main(String[] args) throws Exception {
         url = "https://api.steampowered.com/IDOTA2Match_570/GetMatchDetails/V001/?match_id=2684466831&key=4CF8B3DF4EF7B7BBD041E21E620DB912";
         URL oracle = new URL(url);
         URLConnection yc = oracle.openConnection();
-        BufferReaderFile readAbilities = new BufferReaderFile("data/abilities.json");
-        BufferReaderFile readerURL = new BufferReaderFile(new InputStreamReader(yc.getInputStream()));
-        BufferReaderFile readHeroes = new BufferReaderFile("data/heroes.json");
-        ArrayList<String> dota2 = new ArrayList<String>();
-        dota2.add(readAbilities.getFile());
-        dota2.add(readerURL.getFile());
-        dota2.add(readHeroes.getFile());
-        System.out.println(dota2.get(1));
+        BufferReaderFile abilities = new BufferReaderFile(ABILITIES);
+        BufferReaderFile URL = new BufferReaderFile(new InputStreamReader(yc.getInputStream()));
+        BufferReaderFile heroes = new BufferReaderFile(HEROES);
+
+        ArrayList<String> dota2 = new ArrayList<>();
+        dota2.add(URL.getFile());
+        dota2.add(abilities.getFile());
+        dota2.add(heroes.getFile());
+        Match match = new Match(dota2.get(0));
+        System.out.println(match.resultmatch());
+        System.out.println(match.getplayer(9));
+
     }
 }
 
